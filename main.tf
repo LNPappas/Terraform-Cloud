@@ -14,3 +14,7 @@ provider "google" {
 resource "google_storage_bucket" "gcs_bucket" {
   name = "test-bucket-terraform-cloud-pipeline"
 }
+
+resource "google_storage_bucket" "gcs_bucket" {
+  name = "2-test-bucket-terraform-cloud-pipeline"
+}
