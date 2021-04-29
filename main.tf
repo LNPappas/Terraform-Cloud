@@ -1,22 +1,7 @@
-terraform {
-  required_providers {
-    google = {
-      source  = "hashicorp/google"
-      version = "3.55.0"
-    }
-  }
+resource "google_storage_bucket" "bucket_1" {
+  name = var.bucket_1
 }
 
-provider "google" {
-  project = "demotfcloud"
-  region  = "us-central1"
-  
+resource "google_storage_bucket" "bucket_2" {
+  name = var.bucket_2
 }
-
-# resource "google_storage_bucket" "gcs_bucket" {
-#   name = "1st-test-bucket-terraform-cloud-pipeline"
-# }
-
-# resource "google_storage_bucket" "gcs_bucket_2" {
-#   name = "2nd-test-bucket-terraform-cloud-pipeline"
-# }
