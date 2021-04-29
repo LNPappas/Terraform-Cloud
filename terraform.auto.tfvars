@@ -1,0 +1,5 @@
+bucket_1 = "1st-test-bucket-terraform-cloud-pipeline"
+bucket_2 = "2nd-test-bucket-terraform-cloud-pipeline"
+project_name = "demotfcloud"
+region  = "us-central1"
+github_token = "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"
