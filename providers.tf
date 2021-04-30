@@ -6,8 +6,8 @@ terraform {
     }
 
     github = {
-      source = "integrations/github"
-      version = "4.9.2"
+      source = "hashicorp/github"
+      version = "4.7.0"
     }
   }
 }
