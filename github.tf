@@ -1,25 +1,9 @@
 resource "github_repository" "repo_b" {
   name = "repo_b"
-
-  template {
-    owner      = "LNPappas"
-    repository = "repo_b"
-  }
-
-  auto_init              = true
-  delete_branch_on_merge = true
 }
 
 resource "github_repository" "repo_c" {
   name = "repo_c"
-
-  template {
-    owner      = "LNPappas"
-    repository = "repo_c"
-  }
-
-  auto_init              = true
-  delete_branch_on_merge = true
 }
 
 resource "github_repository_file" "b_tfvars" {
