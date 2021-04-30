@@ -21,3 +21,9 @@ variable "region" {
   description = "region of project/buckets"
   default     = ""
 }
+
+variable "github_token" {
+  type        = string
+  description = "token for github"
+  default     = ""
+}

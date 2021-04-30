@@ -15,3 +15,7 @@ provider "google" {
   project = var.project_name
   region  = var.region
 }
+
+provider "github" {
+  token        = var.github_token
+}
