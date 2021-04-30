@@ -1,27 +1,27 @@
-resource "null_resource" "previous" {}
+// resource "null_resource" "previous" {}
 
-resource "time_sleep" "wait_30_seconds" {
-  depends_on = [null_resource.previous]
+// resource "time_sleep" "wait_30_seconds" {
+//   depends_on = [null_resource.previous]
 
-  create_duration = "30s"
-}
+//   create_duration = "30s"
+// }
 
-# This resource will create (at least) 30 seconds after null_resource.previous
-resource "null_resource" "next" {
-  depends_on = [time_sleep.wait_30_seconds]
-}
+// # This resource will create (at least) 30 seconds after null_resource.previous
+// resource "null_resource" "next" {
+//   depends_on = [time_sleep.wait_30_seconds]
+// }
 
-resource "github_repository" "repo_b" {
-  name = "repo_b"
-}
+// resource "github_repository" "repo_b" {
+//   name = "repo_b"
+// }
 
-resource "github_repository" "repo_c" {
-  name = "repo_c"
-}
+// resource "github_repository" "repo_c" {
+//   name = "repo_c"
+// }
 
 resource "github_repository_file" "b_tfvars" {
     depends_on = [time_sleep.wait_30_seconds]
-  repository          = github_repository.repo_b.name
+  repository          = "repo_b"
   branch              = "main"
   file                = "repo_b.tfvars"
   content             = "repo_b.tfvars"
@@ -41,7 +41,7 @@ resource "github_repository_file" "b_tfvars" {
 
 resource "github_repository_file" "c_tfvars" {
     depends_on = [time_sleep.wait_30_seconds]
-  repository          = github_repository.repo_c.name
+  repository          = "repo_c"
   branch              = "main"
   file                = "repo_c.tfvars"
   content             = "repo_c.tfvars"
@@ -60,21 +60,21 @@ resource "github_repository_file" "c_tfvars" {
 }
 
 resource "github_branch_protection_v3" "main_b" {
-  repository = github_repository.repo_b.name
+  repository = "repo_b"
   branch     = "main"
 }
 
 resource "github_branch_protection_v3" "main_c" {
-  repository = github_repository.repo_c.name
+  repository = "repo_c"
   branch     = "main"
 }
 
 resource "github_branch_default" "default_b" {
-  repository = github_repository.repo_b.name
+  repository = "repo_b"
   branch     = "main"
 }
 
 resource "github_branch_default" "default_c" {
-  repository = github_repository.repo_c.name
+  repository = "repo_c"
   branch     = "main"
 }
