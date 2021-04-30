@@ -2,7 +2,7 @@
 # workspace uses a runs trigger on workspaces b & c  when variables are set
 
 resource "tfe_workspace" "workspace_b" {
-  name              = "Workspace-b"
+  name              = "workspace_b"
   organization      = "Factory_Test"
   terraform_version = "0.13.12"
   queue_all_runs    = false
@@ -10,12 +10,12 @@ resource "tfe_workspace" "workspace_b" {
   vcs_repo {
     identifier     = github_repository.repo_b.full_name
     branch         = github_branch_protection_v3.main_b.branch
-    oauth_token_id = var.github_token
+    oauth_token_id = "ot-2NQF7eb6F3E4s21g"
   }
 }
 
 resource "tfe_workspace" "workspace_c" {
-  name              = "Workspace-c"
+  name              = "workspace_c"
   organization      = "Factory_Test"
   terraform_version = "0.13.12"
   queue_all_runs    = false
@@ -23,7 +23,7 @@ resource "tfe_workspace" "workspace_c" {
   vcs_repo {
     identifier     = github_repository.repo_c.full_name
     branch         = github_branch_protection_v3.main_c.branch
-    oauth_token_id = var.github_token
+    oauth_token_id = "ot-2NQF7eb6F3E4s21g"
   }
 }
 
