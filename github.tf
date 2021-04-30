@@ -7,7 +7,7 @@ resource "github_repository" "repo_c" {
 }
 
 resource "github_repository_file" "b_tfvars" {
-  repository          = "repo_b"
+  repository          = github_repository.repo_b.name
   branch              = "main"
   file                = "repo_b.tfvars"
   content             = "repo_b.tfvars"
@@ -26,7 +26,7 @@ resource "github_repository_file" "b_tfvars" {
 }
 
 resource "github_repository_file" "c_tfvars" {
-  repository          = "repo_c"
+  repository          = github_repository.repo_c.name
   branch              = "main"
   file                = "repo_c.tfvars"
   content             = "repo_c.tfvars"
@@ -45,21 +45,21 @@ resource "github_repository_file" "c_tfvars" {
 }
 
 resource "github_branch_protection_v3" "main_b" {
-  repository = "repo_b"
+  repository = github_repository.repo_b.name
   branch     = "main"
 }
 
 resource "github_branch_protection_v3" "main_c" {
-  repository = "repo_c"
+  repository = github_repository.repo_c.name
   branch     = "main"
 }
 
 resource "github_branch_default" "default_b" {
-  repository = "repo_b"
+  repository = github_repository.repo_b.name
   branch     = "main"
 }
 
 resource "github_branch_default" "default_c" {
-  repository = "repo_c"
+  repository = github_repository.repo_c.name
   branch     = "main"
 }
