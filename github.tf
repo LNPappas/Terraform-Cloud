@@ -1,14 +1,3 @@
-resource "github_repository" "example" {
-  name        = "example"
-  description = "My awesome codebase"
-
-  visibility = "public"
-
-  template {
-    owner      = "github"
-    repository = "terraform-module-template"
-  }
-}
 resource "github_repository" "repo_b" {
   name = "repo_b"
 }
@@ -18,7 +7,7 @@ resource "github_repository" "repo_c" {
 }
 
 resource "github_repository_file" "b_tfvars" {
-  repository          = github_repository.repo_b.name
+  repository          = "repo_b"
   branch              = "main"
   file                = "repo_b.tfvars"
   content             = "repo_b.tfvars"
@@ -37,7 +26,7 @@ resource "github_repository_file" "b_tfvars" {
 }
 
 resource "github_repository_file" "c_tfvars" {
-  repository          = github_repository.repo_c.name
+  repository          = "repo_c"
   branch              = "main"
   file                = "repo_c.tfvars"
   content             = "repo_c.tfvars"
@@ -56,21 +45,21 @@ resource "github_repository_file" "c_tfvars" {
 }
 
 resource "github_branch_protection_v3" "main_b" {
-  repository = github_repository.repo_b.name
+  repository = "repo_b"
   branch     = "main"
 }
 
 resource "github_branch_protection_v3" "main_c" {
-  repository = github_repository.repo_c.name
+  repository = "repo_c"
   branch     = "main"
 }
 
 resource "github_branch_default" "default_b" {
-  repository = github_repository.repo_b.name
+  repository = "repo_b"
   branch     = "main"
 }
 
 resource "github_branch_default" "default_c" {
-  repository = github_repository.repo_c.name
+  repository = "repo_c"
   branch     = "main"
 }

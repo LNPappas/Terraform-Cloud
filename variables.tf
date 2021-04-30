@@ -25,5 +25,4 @@ variable "region" {
 variable "github_token" {
   type        = string
   description = "token for github"
-  default     = ""
 }

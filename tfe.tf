@@ -8,7 +8,7 @@ resource "tfe_workspace" "workspace_b" {
   queue_all_runs    = false
 
   vcs_repo {
-    identifier     = github_repository.repo_b.full_name
+    identifier     = "LNPappas/repo_b"
     branch         = github_branch_protection_v3.main_b.branch
     oauth_token_id = "ot-2NQF7eb6F3E4s21g"
   }
@@ -21,7 +21,7 @@ resource "tfe_workspace" "workspace_c" {
   queue_all_runs    = false
 
   vcs_repo {
-    identifier     = github_repository.repo_c.full_name
+    identifier     = "LNPappas/repo_c"
     branch         = github_branch_protection_v3.main_c.branch
     oauth_token_id = "ot-2NQF7eb6F3E4s21g"
   }
