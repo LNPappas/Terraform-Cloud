@@ -20,7 +20,6 @@
 // }
 
 resource "github_repository_file" "b_tfvars" {
-    depends_on = [time_sleep.wait_30_seconds]
   repository          = "repo_b"
   branch              = "main"
   file                = "repo_b.tfvars"
@@ -40,7 +39,6 @@ resource "github_repository_file" "b_tfvars" {
 }
 
 resource "github_repository_file" "c_tfvars" {
-    depends_on = [time_sleep.wait_30_seconds]
   repository          = "repo_c"
   branch              = "main"
   file                = "repo_c.tfvars"
