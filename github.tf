@@ -1,3 +1,14 @@
+resource "github_repository" "example" {
+  name        = "example"
+  description = "My awesome codebase"
+
+  visibility = "public"
+
+  template {
+    owner      = "github"
+    repository = "terraform-module-template"
+  }
+}
 resource "github_repository" "repo_b" {
   name = "repo_b"
 }
