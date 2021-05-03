@@ -22,7 +22,7 @@ resource "github_repository" "repo_b" {
 // }
 
 resource "github_repository_file" "b_tfvars" {
-//   depends_on          = [time_sleep.wait_30_seconds]
+  //   depends_on          = [time_sleep.wait_30_seconds]
   repository          = github_repository.repo_b.name
   branch              = "main"
   file                = "terraform.auto.tfvars"

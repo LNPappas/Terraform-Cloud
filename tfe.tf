@@ -2,7 +2,7 @@
 # workspace uses a runs trigger on workspaces b & c  when variables are set
 
 resource "tfe_workspace" "workspace_b" {
-//   depends_on        = [github_repository_file.b_tfvars]
+  //   depends_on        = [github_repository_file.b_tfvars]
   name              = "workspace_b"
   organization      = "db_test"
   terraform_version = "0.14.5"
@@ -28,9 +28,10 @@ resource "tfe_workspace" "workspace_b" {
 //   }
 // }
 
+
 resource "tfe_variable" "b_tfvars_plan" {
   key          = "TF_CLI_ARGS_plan"
-  value        = "terraform.auto.tfvars"
+  value        = file("terraform.auto.tfvars")
   category     = "terraform"
   workspace_id = tfe_workspace.workspace_b.id
 }
@@ -41,3 +42,44 @@ resource "tfe_variable" "b_tfvars_plan" {
 //   category     = "terraform"
 //   workspace_id = tfe_workspace.workspace_c.id
 // }
+
+resource "tfe_variable" "bucket_1" {
+  key          = "bucket_1"
+  value        = var.bucket_1
+  category     = "terraform"
+  workspace_id = tfe_workspace.workspace_b.id
+}
+
+
+resource "tfe_variable" "bucket_2" {
+  key          = "bucket_2"
+  value        = var.bucket_2
+  category     = "terraform"
+  workspace_id = tfe_workspace.workspace_b.id
+}
+
+
+resource "tfe_variable" "project_name" {
+  key          = "project_name"
+  value        = var.project_name
+  category     = "terraform"
+  workspace_id = tfe_workspace.workspace_b.id
+}
+
+
+resource "tfe_variable" "region" {
+  key          = "region"
+  value        = var.region
+  category     = "terraform"
+  workspace_id = tfe_workspace.workspace_b.id
+}
+
+
+resource "tfe_variable" "github_token" {
+  key          = "github_token"
+  value        = var.github_token
+  category     = "env"
+  sensitive    = true
+  workspace_id = tfe_workspace.workspace_b.id
+}
+  
