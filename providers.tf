@@ -6,12 +6,12 @@ terraform {
     }
 
     null = {
-      source = "hashicorp/null"
+      source  = "hashicorp/null"
       version = "3.1.0"
     }
 
     github = {
-      source = "hashicorp/github"
+      source  = "hashicorp/github"
       version = "4.7.0"
     }
   }
@@ -23,5 +23,5 @@ provider "google" {
 }
 
 provider "github" {
-  token        = var.github_token
+  token = var.github_token
 }
