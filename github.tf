@@ -11,19 +11,21 @@
 //   depends_on = [time_sleep.wait_30_seconds]
 // }
 
-// resource "github_repository" "repo_b" {
-//   name = "repo_b"
-// }
+resource "github_repository" "repo_b" {
+  name = "repo_b"
+  auto_init = true
+}
 
-// resource "github_repository" "repo_c" {
-//   name = "repo_c"
-// }
+resource "github_repository" "repo_c" {
+  name = "repo_c"
+  auto_init = true
+}
 
 resource "github_repository_file" "b_tfvars" {
-  repository          = "repo_b"
+  repository          = github_repository.repo_b.name
   branch              = "main"
-  file                = "repo_b.tfvars"
-  content             = "repo_b.tfvars"
+  file                = "terraform.auto.tfvars"
+  content             = file("terraform.auto.tfvars")
   commit_message      = "initial commit"
   commit_author       = "Lauren Pappas"
   commit_email        = "LPappas@gmail.com"
@@ -39,10 +41,10 @@ resource "github_repository_file" "b_tfvars" {
 }
 
 resource "github_repository_file" "c_tfvars" {
-  repository          = "repo_c"
+  repository          = github_repository.repo_c.name
   branch              = "main"
-  file                = "repo_c.tfvars"
-  content             = "repo_c.tfvars"
+  file                = "terraform.auto.tfvars"
+  content             = file("terraform.auto.tfvars")
   commit_message      = "initial commit"
   commit_author       = "Lauren Pappas"
   commit_email        = "LPappas@gmail.com"
@@ -55,24 +57,4 @@ resource "github_repository_file" "c_tfvars" {
       branch
     ]
   }
-}
-
-resource "github_branch_protection_v3" "main_b" {
-  repository = "repo_b"
-  branch     = "main"
-}
-
-resource "github_branch_protection_v3" "main_c" {
-  repository = "repo_c"
-  branch     = "main"
-}
-
-resource "github_branch_default" "default_b" {
-  repository = "repo_b"
-  branch     = "main"
-}
-
-resource "github_branch_default" "default_c" {
-  repository = "repo_c"
-  branch     = "main"
 }
