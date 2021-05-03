@@ -31,3 +31,8 @@ variable "google_credentials" {
   type        = string
   description = "google json token"
 }
+
+variable "workspace_trigger_id" {
+  type        = string
+  description = "id of workspace a for trigger"
+}

@@ -86,6 +86,19 @@ resource "tfe_variable" "google_credentials" {
   workspace_id = tfe_workspace.workspace_b.id
 }
 
+resource "tfe_variable" "workspace_trigger_id" {
+  key          = "google_credentials"
+  value        = var.workspace_trigger_id
+  category     = "terraform"
+  sensitive    = true
+  workspace_id = tfe_workspace.workspace_b.id
+}
+
+resource "tfe_run_trigger" "trigger_b" {
+  workspace_id  = tfe_workspace.workspace_b.id
+  sourceable_id = var.workspace_trigger_id
+}
+
 // resource "tfe_workspace" "workspace_c" {
 //   name              = "workspace_c"
 //   organization      = "db_test"
