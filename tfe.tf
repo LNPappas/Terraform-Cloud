@@ -112,7 +112,7 @@ resource "tfe_workspace" "workspace_c" {
   }
 }
 
-resource "tfe_variable" "bucket_1" {
+resource "tfe_variable" "bucket_1_c" {
   key          = "bucket_1"
   value        = "${var.bucket_1}-${tfe_workspace.workspace_c.name}"
   category     = "terraform"
@@ -120,7 +120,7 @@ resource "tfe_variable" "bucket_1" {
 }
 
 
-resource "tfe_variable" "bucket_2" {
+resource "tfe_variable" "bucket_2_c" {
   key          = "bucket_2"
   value        = "${var.bucket_2}-${tfe_workspace.workspace_c.name}"
   category     = "terraform"
@@ -128,7 +128,7 @@ resource "tfe_variable" "bucket_2" {
 }
 
 
-resource "tfe_variable" "project_name" {
+resource "tfe_variable" "project_name_c" {
   key          = "project_name"
   value        = var.project_name
   category     = "terraform"
@@ -136,14 +136,14 @@ resource "tfe_variable" "project_name" {
 }
 
 
-resource "tfe_variable" "region" {
+resource "tfe_variable" "region_c" {
   key          = "region"
   value        = var.region
   category     = "terraform"
   workspace_id = tfe_workspace.workspace_c.id
 }
 
-resource "tfe_variable" "github_token" {
+resource "tfe_variable" "github_token_c" {
   key          = "github_token"
   value        = var.github_token
   category     = "terraform"
@@ -151,7 +151,7 @@ resource "tfe_variable" "github_token" {
   workspace_id = tfe_workspace.workspace_c.id
 }
 
-resource "tfe_variable" "github_token_env" {
+resource "tfe_variable" "github_token_env_c" {
   key          = "github_token"
   value        = var.github_token
   category     = "env"
@@ -159,7 +159,7 @@ resource "tfe_variable" "github_token_env" {
   workspace_id = tfe_workspace.workspace_c.id
 }
 
-resource "tfe_variable" "github_token" {
+resource "tfe_variable" "github_token_c" {
   key          = "github_token"
   value        = var.github_token
   category     = "env"
@@ -167,8 +167,7 @@ resource "tfe_variable" "github_token" {
   workspace_id = tfe_workspace.workspace_c.id
 }
 
-
-resource "tfe_variable" "github_token" {
+resource "tfe_variable" "github_token_c" {
   key          = "github_token"
   value        = var.github_token
   category     = "env"
@@ -176,7 +175,7 @@ resource "tfe_variable" "github_token" {
   workspace_id = tfe_workspace.workspace_c.id
 }
 
-resource "tfe_variable" "google_credentials" {
+resource "tfe_variable" "google_credentials_c" {
   key          = "google_credentials"
   value        = var.google_credentials
   category     = "terraform"
