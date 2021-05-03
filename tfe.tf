@@ -167,14 +167,6 @@ resource "tfe_variable" "github_token_c" {
   workspace_id = tfe_workspace.workspace_c.id
 }
 
-resource "tfe_variable" "github_token_c" {
-  key          = "github_token"
-  value        = var.github_token
-  category     = "env"
-  sensitive    = true
-  workspace_id = tfe_workspace.workspace_c.id
-}
-
 resource "tfe_variable" "google_credentials_c" {
   key          = "google_credentials"
   value        = var.google_credentials
