@@ -26,8 +26,3 @@ variable "github_token" {
   type        = string
   description = "token for github"
 }
-
-variable "google_credentials" {
-  type        = string
-  description = "GCP credentials"
-}

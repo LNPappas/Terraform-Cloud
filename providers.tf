@@ -20,7 +20,6 @@ terraform {
 provider "google" {
   project = var.project_name
   region  = var.region
-  credentials = var.google_credentials
 }
 
 provider "github" {
