@@ -62,6 +62,14 @@
 //   workspace_id = tfe_workspace.workspace_b.id
 // }
 
+// resource "tfe_variable" "gcp_credentials" {
+//   key          = "google_credentials"
+//   value        = var.google_credentials
+//   category     = "env"
+//   sensitive    = true
+//   workspace_id = tfe_workspace.workspace_b.id
+// }
+
 // // resource "tfe_workspace" "workspace_c" {
 // //   name              = "workspace_c"
 // //   organization      = "db_test"
@@ -121,3 +129,12 @@
 // //   sensitive    = true
 // //   workspace_id = tfe_workspace.workspace_c.id
 // // }
+
+
+// resource "tfe_variable" "github_token" {
+//   key          = "github_token"
+//   value        = var.github_token
+//   category     = "env"
+//   sensitive    = true
+//   workspace_id = tfe_workspace.workspace_c.id
+// }
