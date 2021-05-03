@@ -87,10 +87,10 @@ resource "tfe_variable" "google_credentials" {
 }
 
 resource "tfe_variable" "workspace_trigger_id" {
-  key          = "workspace_trigger"
+  key          = "workspace_trigger_id"
   value        = var.workspace_trigger_id
   category     = "terraform"
-  sensitive    = true
+  sensitive    = False
   workspace_id = tfe_workspace.workspace_b.id
 }
 
