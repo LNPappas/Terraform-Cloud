@@ -2,7 +2,7 @@
 # workspace uses a runs trigger on workspaces b & c  when variables are set
 
 resource "tfe_workspace" "workspace_b" {
-  depends_on        = [github_repository_file.b_tfvars]
+//   depends_on        = [github_repository_file.b_tfvars]
   name              = "workspace_b"
   organization      = "db_test"
   terraform_version = "0.14.5"

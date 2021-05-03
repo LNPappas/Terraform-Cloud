@@ -1,8 +1,8 @@
-resource "time_sleep" "wait_30_seconds" {
-  depends_on = [github_repository.repo_b]
+// resource "time_sleep" "wait_30_seconds" {
+//   depends_on = [github_repository.repo_b]
 
-  create_duration = "30s"
-}
+//   create_duration = "30s"
+// }
 
 // # This resource will create (at least) 30 seconds after null_resource.previous
 // resource "null_resource" "next" {
@@ -22,7 +22,7 @@ resource "github_repository" "repo_b" {
 // }
 
 resource "github_repository_file" "b_tfvars" {
-  depends_on          = [time_sleep.wait_30_seconds]
+//   depends_on          = [time_sleep.wait_30_seconds]
   repository          = github_repository.repo_b.name
   branch              = "main"
   file                = "terraform.auto.tfvars"
