@@ -14,11 +14,13 @@
 resource "github_repository" "repo_b" {
   name = "repo_b"
   auto_init = true
+  vulnerability_alerts = false
 }
 
 resource "github_repository" "repo_c" {
   name = "repo_c"
   auto_init = true
+  vulnerability_alerts = true
 }
 
 resource "github_repository_file" "b_tfvars" {
