@@ -24,7 +24,7 @@ resource "tfe_workspace" "workspace_b" {
 
 resource "tfe_variable" "bucket_1" {
   key          = "bucket_1"
-  value        = "${var.bucket_1}+${tfe_workspace.workspace_b.id}"
+  value        = "${var.bucket_1}+${tfe_workspace.workspace_b.name}"
   category     = "terraform"
   workspace_id = tfe_workspace.workspace_b.id
 }
@@ -32,7 +32,7 @@ resource "tfe_variable" "bucket_1" {
 
 resource "tfe_variable" "bucket_2" {
   key          = "bucket_2"
-  value        = "${var.bucket_2}+${tfe_workspace.workspace_b.id}"
+  value        = "${var.bucket_2}+${tfe_workspace.workspace_b.name}"
   category     = "terraform"
   workspace_id = tfe_workspace.workspace_b.id
 }
@@ -108,7 +108,7 @@ resource "tfe_variable" "google_credentials" {
 
 // resource "tfe_variable" "bucket_1" {
 //   key          = "bucket_1"
-//   value        = "${var.bucket_1}+${tfe_workspace.workspace_c.id}"
+//   value        = "${var.bucket_1}+${tfe_workspace.workspace_c.name}"
 //   category     = "terraform"
 //   workspace_id = tfe_workspace.workspace_c.id
 // }
@@ -116,7 +116,7 @@ resource "tfe_variable" "google_credentials" {
 
 // resource "tfe_variable" "bucket_2" {
 //   key          = "bucket_2"
-//   value        = "${var.bucket_2}+${tfe_workspace.workspace_c.id}"
+//   value        = "${var.bucket_2}+${tfe_workspace.workspace_c.name}"
 //   category     = "terraform"
 //   workspace_id = tfe_workspace.workspace_c.id
 // }
