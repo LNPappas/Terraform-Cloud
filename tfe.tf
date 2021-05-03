@@ -57,6 +57,14 @@ resource "tfe_variable" "region" {
 resource "tfe_variable" "github_token" {
   key          = "github_token"
   value        = var.github_token
+  category     = "terraform"
+  sensitive    = true
+  workspace_id = tfe_workspace.workspace_b.id
+}
+
+resource "tfe_variable" "github_token_env" {
+  key          = "github_token"
+  value        = var.github_token
   category     = "env"
   sensitive    = true
   workspace_id = tfe_workspace.workspace_b.id
@@ -129,6 +137,21 @@ resource "tfe_variable" "google_credentials" {
 //   workspace_id = tfe_workspace.workspace_c.id
 // }
 
+// resource "tfe_variable" "github_token" {
+//   key          = "github_token"
+//   value        = var.github_token
+//   category     = "terraform"
+//   sensitive    = true
+//   workspace_id = tfe_workspace.workspace_c.id
+// }
+
+// resource "tfe_variable" "github_token_env" {
+//   key          = "github_token"
+//   value        = var.github_token
+//   category     = "env"
+//   sensitive    = true
+//   workspace_id = tfe_workspace.workspace_c.id
+// }
 
 // resource "tfe_variable" "github_token" {
 //   key          = "github_token"
