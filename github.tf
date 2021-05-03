@@ -4,6 +4,12 @@ resource "github_repository" "repo_b" {
   vulnerability_alerts = true
 }
 
+resource "github_repository" "repo_c" {
+  name = "repo_c"
+  auto_init = true
+  vulnerability_alerts = true
+}
+
 resource "github_repository_file" "b_tfvars" {
   repository          = github_repository.repo_b.name
   branch              = "main"
@@ -78,12 +84,6 @@ resource "github_repository_file" "variables" {
       branch
     ]
   }
-}
-
-resource "github_repository" "repo_c" {
-  name = "repo_c"
-  auto_init = true
-  vulnerability_alerts = true
 }
 
 resource "github_repository_file" "c_tfvars" {

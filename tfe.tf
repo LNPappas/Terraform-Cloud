@@ -2,7 +2,6 @@
 # workspace uses a runs trigger on workspaces b & c  when variables are set
 
 resource "tfe_workspace" "workspace_b" {
-  //   depends_on        = [github_repository_file.b_tfvars]
   name              = "workspace_b"
   organization      = "db_test"
   terraform_version = "0.14.5"
@@ -14,13 +13,6 @@ resource "tfe_workspace" "workspace_b" {
     oauth_token_id = "ot-2NQF7eb6F3E4s21g"
   }
 }
-
-// resource "tfe_variable" "b_tfvars_plan" {
-//   key          = "TF_CLI_ARGS_plan"
-//   value        = file("terraform.auto.tfvars")
-//   category     = "terraform"
-//   workspace_id = tfe_workspace.workspace_b.id
-// }
 
 resource "tfe_variable" "bucket_1" {
   key          = "bucket_1"
@@ -106,7 +98,7 @@ resource "tfe_workspace" "workspace_c" {
   queue_all_runs    = false
 
   vcs_repo {
-    identifier     = "LNPappas/repo_c"
+    identifier     = "LNPappas/${github_repository.repo_c.name}"
     branch         = "main"
     oauth_token_id = "ot-2NQF7eb6F3E4s21g"
   }
