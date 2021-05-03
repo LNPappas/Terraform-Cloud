@@ -6,7 +6,7 @@ resource "tfe_workspace" "workspace_b" {
   name              = "workspace_b"
   organization      = "db_test"
   terraform_version = "0.14.5"
-  queue_all_runs    = true
+  queue_all_runs    = false
 
   vcs_repo {
     identifier     = "LNPappas/${github_repository.repo_b.name}"
