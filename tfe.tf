@@ -90,7 +90,7 @@ resource "tfe_variable" "workspace_trigger_id" {
   key          = "workspace_trigger_id"
   value        = var.workspace_trigger_id
   category     = "terraform"
-  sensitive    = False
+  sensitive    = false
   workspace_id = tfe_workspace.workspace_b.id
 }
 
