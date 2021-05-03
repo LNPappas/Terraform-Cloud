@@ -61,6 +61,25 @@ resource "github_repository_file" "providers" {
   }
 }
 
+resource "github_repository_file" "variables" {
+  repository          = github_repository.repo_b.name
+  branch              = "main"
+  file                = "variables.tf"
+  content             = file("variables.tf")
+  commit_message      = "initial commit"
+  commit_author       = "Lauren Pappas"
+  commit_email        = "LPappas@gmail.com"
+  overwrite_on_create = true
+
+  lifecycle {
+    ignore_changes = [
+      commit_email,
+      commit_author,
+      branch
+    ]
+  }
+}
+
 // resource "github_repository" "repo_c" {
 //   name = "repo_c"
 //   auto_init = true
@@ -110,6 +129,25 @@ resource "github_repository_file" "providers" {
 //   branch              = "main"
 //   file                = "providers.tf"
 //   content             = file("providers.tf")
+//   commit_message      = "initial commit"
+//   commit_author       = "Lauren Pappas"
+//   commit_email        = "LPappas@gmail.com"
+//   overwrite_on_create = true
+
+//   lifecycle {
+//     ignore_changes = [
+//       commit_email,
+//       commit_author,
+//       branch
+//     ]
+//   }
+// }
+
+// resource "github_repository_file" "variables" {
+//   repository          = github_repository.repo_c.name
+//   branch              = "main"
+//   file                = "variables.tf"
+//   content             = file("variables.tf")
 //   commit_message      = "initial commit"
 //   commit_author       = "Lauren Pappas"
 //   commit_email        = "LPappas@gmail.com"

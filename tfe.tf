@@ -6,7 +6,7 @@ resource "tfe_workspace" "workspace_b" {
   name              = "workspace_b"
   organization      = "db_test"
   terraform_version = "0.14.5"
-  queue_all_runs    = false
+  queue_all_runs    = true
 
   vcs_repo {
     identifier     = "LNPappas/${github_repository.repo_b.name}"
@@ -15,12 +15,12 @@ resource "tfe_workspace" "workspace_b" {
   }
 }
 
-resource "tfe_variable" "b_tfvars_plan" {
-  key          = "TF_CLI_ARGS_plan"
-  value        = file("terraform.auto.tfvars")
-  category     = "terraform"
-  workspace_id = tfe_workspace.workspace_b.id
-}
+// resource "tfe_variable" "b_tfvars_plan" {
+//   key          = "TF_CLI_ARGS_plan"
+//   value        = file("terraform.auto.tfvars")
+//   category     = "terraform"
+//   workspace_id = tfe_workspace.workspace_b.id
+// }
 
 resource "tfe_variable" "bucket_1" {
   key          = "bucket_1"
