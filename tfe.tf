@@ -119,7 +119,6 @@ resource "tfe_variable" "bucket_1_c" {
   workspace_id = tfe_workspace.workspace_c.id
 }
 
-
 resource "tfe_variable" "bucket_2_c" {
   key          = "bucket_2"
   value        = "${var.bucket_2}-${tfe_workspace.workspace_c.name}"
@@ -127,14 +126,12 @@ resource "tfe_variable" "bucket_2_c" {
   workspace_id = tfe_workspace.workspace_c.id
 }
 
-
 resource "tfe_variable" "project_name_c" {
   key          = "project_name"
   value        = var.project_name
   category     = "terraform"
   workspace_id = tfe_workspace.workspace_c.id
 }
-
 
 resource "tfe_variable" "region_c" {
   key          = "region"
@@ -152,14 +149,6 @@ resource "tfe_variable" "github_token_c" {
 }
 
 resource "tfe_variable" "github_token_env_c" {
-  key          = "github_token"
-  value        = var.github_token
-  category     = "env"
-  sensitive    = true
-  workspace_id = tfe_workspace.workspace_c.id
-}
-
-resource "tfe_variable" "github_token_c" {
   key          = "github_token"
   value        = var.github_token
   category     = "env"
