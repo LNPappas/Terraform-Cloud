@@ -29,7 +29,7 @@ resource "github_repository_file" "b_tfvars" {
   commit_message      = "initial commit"
   commit_author       = "Lauren Pappas"
   commit_email        = "LPappas@gmail.com"
-  overwrite_on_create = false
+  overwrite_on_create = true
 
   lifecycle {
     ignore_changes = [
@@ -48,7 +48,7 @@ resource "github_repository_file" "c_tfvars" {
   commit_message      = "initial commit"
   commit_author       = "Lauren Pappas"
   commit_email        = "LPappas@gmail.com"
-  overwrite_on_create = false
+  overwrite_on_create = true
 
   lifecycle {
     ignore_changes = [

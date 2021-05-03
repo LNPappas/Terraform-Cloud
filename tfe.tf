@@ -4,7 +4,7 @@
 resource "tfe_workspace" "workspace_b" {
   name              = "workspace_b"
   organization      = "db_test"
-  terraform_version = "0.13.12"
+  terraform_version = "0.14.5"
   queue_all_runs    = false
 
   vcs_repo {
@@ -17,7 +17,7 @@ resource "tfe_workspace" "workspace_b" {
 resource "tfe_workspace" "workspace_c" {
   name              = "workspace_c"
   organization      = "db_test"
-  terraform_version = "0.13.12"
+  terraform_version = "0.14.5"
   queue_all_runs    = false
 
   vcs_repo {
